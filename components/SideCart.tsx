@@ -127,23 +127,16 @@ const SideCart: React.FC<Props> = ({ visible, onRequestClose }) => {
               if (onRequestClose) onRequestClose();
             }
           }}
-            disabled={!isAuthenticated}
-            className={`border py-2 w-full rounded uppercase mt-4 ${!isAuthenticated
-              ? "bg-[#B07B5E]/50 text-gray-500 cursor-not-allowed"
-              : "bg-[#B07B5E] hover:bg-[#B07B5E]/50"
-              }`}
-          >
+          disabled={!isAuthenticated}  className={`border py-2 w-full rounded uppercase mt-4 ${!isAuthenticated  ? "bg-[#B07B5E]/50 text-gray-500 cursor-not-allowed"  : "bg-[#B07B5E] hover:bg-[#B07B5E]/50" }`}  >
             Passer au paiement
           </Button>
 
           {!isAuthenticated && (
             <p
-              onClick={() => {
-                router.push("/auth/login");
+              onClick={() => {  router.push("/auth/login");
                 if (onRequestClose) onRequestClose();
               }}
-              className="text-red-500 text-sm mt-2 text-center cursor-pointer hover:underline"
-            >
+              className="text-red-500 text-sm mt-2 text-center cursor-pointer hover:underline" >
               Vous devez vous connecter pour continuer.
             </p>
           )}

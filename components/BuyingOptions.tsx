@@ -14,12 +14,9 @@ interface Props {
 const BuyingOptions: FC<Props> = ({ product }) => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const { updateCart } = useCart();
-
   const onAddToCartClick = () => {
-
     updateCart(product, 1);
     setIsAlertOpen(true);
-
   };
 
   return (

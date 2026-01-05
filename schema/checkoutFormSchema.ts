@@ -26,5 +26,4 @@ export const orderCheckoutSchema = z.object({
     items: z.array(orderItemSchema).min(1, "Le panier ne peut pas être vide"),
     amount: z.number().min(0),
     // paiementNumber: z.string().optional().nullable(),
-
 });
