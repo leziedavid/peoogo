@@ -99,8 +99,8 @@ export default function ProductForm({ initialValues, userEnrollementData, fechpr
     }
 
     const fetchCategories = async () => {
-        const res = await getAllCategories();
-        if (res.statusCode === 200 && res.data) {
+        const res: Awaited<ReturnType<typeof getAllCategories>> = await getAllCategories();
+        if (res && res.statusCode === 200 && res.data) {
             setCategorie(res.data);
         }
     }

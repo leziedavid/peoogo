@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Inter as FontInter } from "next/font/google"; // renommé pour éviter confusion
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/Providers";
+import {Inter as FontInter , Plus_Jakarta_Sans, Roboto as RobotoFont } from "next/font/google";
 
 const inter = FontInter({
   subsets: ["latin"],
@@ -24,10 +24,28 @@ export const metadata: Metadata = {
     },
 };
 
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"], // <-- pas de "900"
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+})
+
+const roboto = RobotoFont({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
+  display: "swap",
+})
+
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={cn(inter.variable)}>
+      {/* <body className={cn(inter.variable)}> */}
+
+      <body className={`${roboto.className}  antialiased `}>
         <Providers>{children}</Providers>
         <Toaster />
       </body>
